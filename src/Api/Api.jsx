@@ -17,3 +17,5 @@ export const Fetch_Blogs_URL = `${BaseUrl}/Public/fetch-blogs.php`;
 
 export const Contact_Us_URL = `${BaseUrl}/Public/contactus.php`;
 export const Fetch_Products_Categorywise_URL = `${BaseUrl}/Public/fetch-products-categorywise.php`;
+export const Add_Wishlist_URL = `${BaseUrl}/Public/add-wishlist.php`;
+export const Fetch_Wishlist_URL = `${BaseUrl}/Public/fetch-wishlist.php`;

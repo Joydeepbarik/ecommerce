@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { DataContext } from "../Layouts/DataContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Fetch_Products_URL, Product_Image_URL } from "../Api/Api";
+import { Add_Wishlist_URL, Fetch_Products_URL, Fetch_Wishlist_URL, Product_Image_URL } from "../Api/Api";
 
 import "swiper/css";
 import { Autoplay } from 'swiper/modules';
@@ -14,6 +14,7 @@ function HomePage() {
 
     const {setSelectedCategory, setCartItems, setConfirmationModalShow, wishlistItems, setWishlistItems} = useContext(DataContext);
     const [productCategories, setProductCategories] = useState([]);
+    const [reload, setReload] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -25,9 +26,31 @@ function HomePage() {
             console.log(categoryArray);
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
         })
     }, []);
+
+    useEffect(() => {
+        const login = localStorage.getItem("login");
+
+        if (login == "true"){
+            const user = localStorage.getItem("userData");
+            const userData = JSON.parse(user);
+
+            axios.get(`${Fetch_Wishlist_URL}?name=${userData.user}`)
+            .then(res => {
+                const products = res.data.wishlist.productlist;
+                const jsonProducts = JSON.parse(products);
+                setWishlistItems(jsonProducts);
+                console.log(jsonProducts);
+                setReload(false);
+            })
+            .catch(err => {
+                console.log(err);
+                setReload(false);
+            })
+        }
+    }, [reload]);
 
     const handleAddToCart = (product) => {
         setCartItems((prevProducts) => {
@@ -53,27 +76,51 @@ function HomePage() {
 
     const handleWishlist = (product) => {
         const login = localStorage.getItem("login");
-        if(login) {
-            if(login == "true") {
-                setWishlistItems((prevProducts) => {
-                    const allWishlistItems = prevProducts.map((item) => 
-                        item.id === product.id 
-                            ? { ...item, quantity: item.quantity + 1 }  // Increment quantity if product exists
+    
+        if (login == "true") { // Check if the user is logged in
+            const user = localStorage.getItem("userData");
+            const userData = JSON.parse(user);
+            setWishlistItems((prevProducts) => {
+                let updatedWishlist;
+    
+                const existingProduct = prevProducts.find(item => item.id === product.id);
+    
+                if (existingProduct) {
+                    updatedWishlist = prevProducts.map(item =>
+                        item.id === product.id
+                            ? { ...item, quantity: item.quantity + 1 }
                             : item
-                    );// Match by unique product ID
-            
-                    if (allWishlistItems.every((item) => item.id !== product.id)) {
-                        allWishlistItems.push({ ...product, quantity: 1 });
+                    );
+                } else {
+                    updatedWishlist = [...prevProducts, { ...product, quantity: 1 }];
+                }
+    
+                const inputs = {
+                    name: userData.user,
+                    products: JSON.stringify(updatedWishlist)
+                };
+
+                axios.post(Add_Wishlist_URL, inputs, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     }
-            
-                    localStorage.setItem('wishlist', JSON.stringify(allWishlistItems)); // Update localStorage
-                    return allWishlistItems; // Update state with updatedItems
-                });
-            } else {
-                setConfirmationModalShow(true);
-            }
+                })
+                .then(res => {
+                    // console.log(res);
+                    localStorage.setItem('wishlist', JSON.stringify(updatedWishlist));
+                    setReload(true);
+                })
+                .catch(err => {
+                    // console.log(err);
+                })
+
+                return updatedWishlist; // Update state
+            });
+        } else {
+            setConfirmationModalShow(true);
         }
-    } 
+    }; 
 
     return(
         <>
@@ -443,7 +490,7 @@ function HomePage() {
                                                             <span><i className="fa-solid fa-indian-rupee-sign"></i>{product.price} {productCategory[0] === 'Electronics' ? '' : `(${product.unit})`}</span>
                                                         </div>
                                                         <div className="btn_sec">
-                                                            <a onClick={() => handleWishlist(product)}><i className="fa-regular fa-heart"></i></a>
+                                                            <a onClick={() => handleWishlist(product)}><i className={`fa-${wishlistItems.includes(product.id) ? 'solid' : 'regular'} fa-heart`}></i></a>
                                                             <a onClick={() => handleAddToCart(product)}><i className="fa-solid fa-cart-plus"></i></a>
                                                         </div>
                                                     </div>
