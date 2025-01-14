@@ -465,38 +465,42 @@ function HomePage() {
                                 <div className="product_box_sec">
                                     {
                                         productCategory[1].length > 0 ?
-                                        productCategory[1].map((product, i) =>
-                                            <div className="product_box" key={i}>
-                                                <div className="box_inner">
-                                                    <div className="inner_top">
-                                                        <img src={`${Product_Image_URL}/${product.pimage}`} alt="" />
-                                                    </div>
-                                                    <div className="inner_bottom">
-                                                        <h4>{product.pname}</h4>
-                                                        <div className="rating">
-                                                            <ul>
-                                                                <i className="fa-solid fa-star"></i>
-                                                                <i className="fa-solid fa-star"></i>
-                                                                <i className="fa-solid fa-star"></i>
-                                                                <i className="fa-solid fa-star"></i>
-                                                                <i className="fa-solid fa-star-half-stroke"></i>
-                                                            </ul>
-                                                            <span>(32 Customers)</span>
+                                        productCategory[1].map((product, i) => {
+                                            const isWishlist = wishlistItems.some(item => item.id === product.id);
+                                            
+                                            return(
+                                                <div className="product_box" key={i}>
+                                                    <div className="box_inner">
+                                                        <div className="inner_top">
+                                                            <img src={`${Product_Image_URL}/${product.pimage}`} alt="" />
                                                         </div>
-                                                    </div>
-                                                    <div className="inner_operation">
-                                                        <div className="price_sec">
-                                                            <p>Price (Rs.):</p>
-                                                            <span><i className="fa-solid fa-indian-rupee-sign"></i>{product.price} {productCategory[0] === 'Electronics' ? '' : `(${product.unit})`}</span>
+                                                        <div className="inner_bottom">
+                                                            <h4>{product.pname}</h4>
+                                                            <div className="rating">
+                                                                <ul>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star"></i>
+                                                                    <i className="fa-solid fa-star-half-stroke"></i>
+                                                                </ul>
+                                                                <span>(32 Customers)</span>
+                                                            </div>
                                                         </div>
-                                                        <div className="btn_sec">
-                                                            <a onClick={() => handleWishlist(product)}><i className={`fa-${wishlistItems.includes(product.id) ? 'solid' : 'regular'} fa-heart`}></i></a>
-                                                            <a onClick={() => handleAddToCart(product)}><i className="fa-solid fa-cart-plus"></i></a>
+                                                        <div className="inner_operation">
+                                                            <div className="price_sec">
+                                                                <p>Price (Rs.):</p>
+                                                                <span><i className="fa-solid fa-indian-rupee-sign"></i>{product.price} {productCategory[0] === 'Electronics' ? '' : `(${product.unit})`}</span>
+                                                            </div>
+                                                            <div className="btn_sec">
+                                                                <a onClick={() => handleWishlist(product)}><i className={`fa-${isWishlist ? 'solid' : 'regular'} fa-heart`}></i></a>
+                                                                <a onClick={() => handleAddToCart(product)}><i className="fa-solid fa-cart-plus"></i></a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        )
+                                            );
+                                        })
                                         :
                                         <div className="no_product_message"></div>
                                     }

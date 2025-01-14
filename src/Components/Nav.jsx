@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { NavWrapper } from "../Styles/Nav-Footer-Style";
 import axios from "axios";
 import { Fetch_Categories_URL } from "../Api/Api";
@@ -7,6 +7,7 @@ import { Fetch_Categories_URL } from "../Api/Api";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Bounce } from 'react-toastify';
+
 
 
 function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory}) {
@@ -111,7 +112,7 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory})
                             <div className={`profile_dropdown ${profileDropdownShow ? 'active' : ''}`}>
                                 <div className="dropdown_inner">
                                     <a><i className="fa-solid fa-user"></i>My Profile</a>
-                                    <a><i className="fa-solid fa-heart"></i>My Wishlist</a>
+                                    <Link to="/wishlist"><i className="fa-solid fa-heart"></i>My Wishlist</Link>
                                     <a onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i>Logout</a>
                                 </div>
                             </div>

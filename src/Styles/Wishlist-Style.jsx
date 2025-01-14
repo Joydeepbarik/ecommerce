@@ -136,6 +136,23 @@ export const WishlistWrapper = styled('div')`
                 }
             }
 
+            .empty_msg {
+                position: relative;
+                width: 100%;
+                padding: 100px 0;
+                display: flex;
+                justify-content: center;
+                padding-top: 75px;
+
+                p {
+                    position: relative;
+                    font-family: "SUSE", sans-serif;
+                    font-size: 22px;
+                    font-weight: 500;
+                    color: #7a7a7a;
+                }
+            }
+
         }
     }    
 `;

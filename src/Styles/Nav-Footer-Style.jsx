@@ -14,6 +14,7 @@ export const NavWrapper = styled('div')`
     background: #fff;
     z-index: 199;
 
+
     .nav_inner {
         position: relative;
         width: 100%;
@@ -92,6 +93,7 @@ export const NavWrapper = styled('div')`
                     &.active::before {
                         transform: scaleX(1);
                     }
+
                 }
 
                 .dropdown {
@@ -127,7 +129,7 @@ export const NavWrapper = styled('div')`
                                 width: 100%;
                                 text-decoration: none;
                                 font-family: "SUSE", sans-serif;
-                                font-size: 16px;
+                                font-size: 15px;
                                 display: flex;
                                 align-items: center;
                                 font-weight: 500;
@@ -135,6 +137,7 @@ export const NavWrapper = styled('div')`
                                 padding: 12px 5px;
                                 border-bottom: 1px solid rgb(217, 217, 217);
                                 transition: all 0.5s;
+                                text-decoration: none;
 
                                 &:last-child {
                                     border-bottom: none;
@@ -169,6 +172,19 @@ export const NavWrapper = styled('div')`
                     max-height: 300px;
                     transition: all 0.5s;
                 }
+
+                /* @media screen {
+                 a{
+                    font-size: 12px;
+
+                    i {
+                        color: #545;
+                    }
+                 }  
+                 p{
+                    
+                 } 
+                } */
             }
         }
 
@@ -255,6 +271,10 @@ export const NavWrapper = styled('div')`
                 right: 0;
                 max-height: 0;
                 overflow: hidden;
+                background: #FFF;
+                border-radius: 6px;
+                box-shadow: 5px 7px 10px rgba(0,0,0,0.2),
+                                -2px -2px 5px rgba(100,100,100,0.2);
                 transition: all 0.5s ease-in-out;
 
                 &.active {
@@ -266,21 +286,18 @@ export const NavWrapper = styled('div')`
                     position: relative;
                     display: flex;
                     flex-direction: column;
-                    padding: 10px 10px;
-                    background: #FFF;
-                    border-radius: 8px;
-                    box-shadow: 5px 7px 10px rgba(0,0,0,0.2),
-                                -2px -2px 5px rgba(100,100,100,0.2);
-
+                    padding: 5px 15px;
+                    
                     a {
                         position: relative;
-                        font-size: 15px;
-                        padding: 10px 20px;
+                        font-size: 13px;
+                        padding: 6px 0px;
                         color: #333;
                         cursor: pointer;
                         font-family: 'Poppins', sans-serif;
                         font-weight: 500;
                         border-bottom: 1px solid #e1e1e1;
+                        text-decoration: none;
 
                         &:last-child {
                             border-bottom: none;
@@ -299,6 +316,10 @@ export const NavWrapper = styled('div')`
                 }
             }
         }
+    }
+
+    @media(max-width: 1250px) {
+        padding: 12px 50px;
     }
 `;
 
