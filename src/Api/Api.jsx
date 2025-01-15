@@ -19,3 +19,4 @@ export const Contact_Us_URL = `${BaseUrl}/Public/contactus.php`;
 export const Fetch_Products_Categorywise_URL = `${BaseUrl}/Public/fetch-products-categorywise.php`;
 export const Add_Wishlist_URL = `${BaseUrl}/Public/add-wishlist.php`;
 export const Fetch_Wishlist_URL = `${BaseUrl}/Public/fetch-wishlist.php`;
+export const Delete_Wishlist_URL = `${BaseUrl}/Public/wishlist-delete.php`;
