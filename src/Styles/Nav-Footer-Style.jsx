@@ -186,7 +186,14 @@ export const NavWrapper = styled('div')`
                  } 
                 } */
             }
+
+            
         }
+        @media (max-width: 1099px) {
+                .nav_items {
+                    display: none;
+                }
+            }
 
         .nav_auth {
             position: relative;
