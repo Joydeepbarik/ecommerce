@@ -10,7 +10,7 @@ import { Bounce } from 'react-toastify';
 
 
 
-function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory}) {
+function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, showMobileNav, setshowMobileNav}) {
 
     const [userName, setUserName] = useState('');
     const [categories, setCategories] = useState([]);
@@ -97,6 +97,10 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory})
                         <li><NavLink to="/about-us" className="nav_item">About Us</NavLink></li>
                         <li><NavLink to="/contact-us" className="nav_item">Contact Us</NavLink></li>
                         <li><NavLink to="/blog" className="nav_item">Blogs</NavLink></li>
+                    </div>
+                    
+                    <div className="res_btn">
+                        <a onClick={() => setshowMobileNav(!showMobileNav)}><i className="fa-solid fa-bars"></i></a>
                     </div>
                     {
                         showProfile ?

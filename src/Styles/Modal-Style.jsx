@@ -791,3 +791,29 @@ export const Auth_Confirmation_Modal = styled('div')`
 
     }
 `;
+
+export const MobileWrapper = styled('div')`
+    position: fixed;
+    top: 70px;
+    left: -150%;
+    width: 320px;
+    height: calc(100vh - 70px);
+    z-index: 450;
+    background: #FFF;
+    transition: all 0.6s ease-in-out;
+
+    &.active {
+        left: 0;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .mobile_inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 25px 30px;
+    }
+
+`;

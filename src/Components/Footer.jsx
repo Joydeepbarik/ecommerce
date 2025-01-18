@@ -91,6 +91,14 @@ function Footer({setShowAuth, setAuthToggle}) {
                                     </div>
                                 </div>
                             </div>
+                            <div className="res_socialmedia_sec">
+                                <div className="social_media">
+                                    <a href="#"><i className="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i className="fa-brands fa-whatsapp"></i></a>
+                                    <a href="#"><i className="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="footer_bottom">

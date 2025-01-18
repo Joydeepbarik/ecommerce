@@ -187,14 +187,33 @@ export const NavWrapper = styled('div')`
                 } */
             }
 
+            @media (max-width: 1099px) {
+                display: none;
+            }
             
         }
+        
+
+        .res_btn {
+            position: relative;
+            display: none;
+            align-items: center;
+            margin-left: auto;
+
+            a {
+                position: relative;
+                font-size: 18px;
+                color: #3F00FF;
+
+            }
+        }
+
         @media (max-width: 1099px) {
-                .nav_items {
-                    display: none;
-                }
+            .res_btn {
+                display: flex;
             }
 
+        }
         .nav_auth {
             position: relative;
             height: 100%;
@@ -363,6 +382,7 @@ export const FooterWrapper = styled('div')`
                 position: relative;
                 width: 100%;
                 display: flex;
+                flex-wrap: wrap;
 
                 .box {
                     position: relative;
@@ -609,6 +629,92 @@ export const FooterWrapper = styled('div')`
                             }
                         }
                     }
+
+                    @media (max-width: 1150px) {
+                        &:nth-child(1) {
+                            width: 100%;
+                            padding: 0 25px;
+                            padding-right: 25px;
+                            margin-bottom: 35px;
+                        }
+
+                        &:nth-child(2) {
+                            width: 33.33%;
+                        }
+
+                        &:nth-child(3) {
+                            width: 33.33%;
+                        }
+
+                        &:nth-child(4) {
+                            width: 33.33%;
+                        }  
+                    }
+                }
+
+                .res_socialmedia_sec {
+                    position: relative;
+                    width: 100%;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+
+                    .social_media {
+                        position: relative;
+                        margin-top: 30px;
+                        display: flex;
+                        align-items: center;
+
+                        a {
+                            position: relative;
+                            width: 40px;
+                            height: 40px;
+                            text-decoration: none;
+                            background: #FFF;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 16px;
+                            margin-right: 15px;
+                            box-shadow: 4px 5px 8px rgba(0,0,0,0.2),
+                                        -2px -2px 4px rgba(118, 118, 118, 0.2);
+
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                transform: scaleY(0.085);
+                                transform-origin: bottom;
+                                background: #3F00FF;
+                                transition: transform 0.6s ease-in-out;
+                            }
+
+                            i {
+                                z-index: 5;
+                                color: #3F00FF;
+                                transition: all 0.5s;
+                            }
+
+                            &:hover::before {
+                                transform: scaleY(1);
+                                transform-origin: bottom;
+                                transition: transform 0.6s ease-in-out;
+                            }
+
+                            &:hover i {
+                                color: #FFF;
+                                transform: rotate(360deg);
+                                transition: all 0.5s;
+                            }
+                        }
+                    }
+
+                    @media (max-width: 1150px) {
+                        display: flex;
+                    }
                 }
             }
 
@@ -621,6 +727,7 @@ export const FooterWrapper = styled('div')`
                 height: 1px;
                 background: linear-gradient(to right, #FFF, #3F00FF, #FFF);
             }
+
         }
 
         .footer_bottom {
