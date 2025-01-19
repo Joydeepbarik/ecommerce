@@ -8,6 +8,8 @@ import Blog from "../Pages/Blog";
 import Contact from "../Pages/Contactus";
 import Products from "../Pages/Products";
 import Wishlist from "../Pages/Wishlist";
+import Orderlist from "../Pages/Orderlist";
+
 
 
 
@@ -24,6 +26,7 @@ function Router() {
                         <Route exact path='blog' element={<Blog/>}/>
                         <Route exact path='products' element={<Products/>}/>
                         <Route exact path='wishlist' element={<Wishlist/>}/>
+                        <Route exact path='orderlist' element={<Orderlist/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>

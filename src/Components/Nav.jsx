@@ -117,6 +117,7 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, 
                                 <div className="dropdown_inner">
                                     <a><i className="fa-solid fa-user"></i>My Profile</a>
                                     <Link to="/wishlist"><i className="fa-solid fa-heart"></i>My Wishlist</Link>
+                                    <Link to="/orderlist"><i className="fa-solid fa-box-open"></i>My Orders</Link>
                                     <a onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i>Logout</a>
                                 </div>
                             </div>

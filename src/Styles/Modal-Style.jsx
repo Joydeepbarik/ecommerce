@@ -813,7 +813,81 @@ export const MobileWrapper = styled('div')`
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: 25px 30px;
+        padding: 0 30px;
+
+        .top_section {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dotted #7a7a7a;
+
+            .img {
+                position: relative;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                margin-right: 20px;
+               
+
+                img {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    border-radius: 50%;
+                }
+            }
+
+            h3 {
+                    position: relative;
+                    display: flex;
+                    font-size: 18px;
+                    font-weight: 500;
+                    font-family: 'Oleo Script', cursive;
+                    color: #555;
+                }
+        }
+        .bottom_section {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-top: 25px;
+
+            li {
+                position: relative;
+                width: 100%;
+                list-style: none;
+                margin-bottom: 10px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                a {
+                    position: relative;
+                    width: 100%;
+                    padding: 15px 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 15px;
+                    color: #000;
+                    text-decoration: none;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 500;
+                    border-radius: 6px;   
+                    cursor: pointer;
+
+                    &:hover {
+                        background: #3F00FF;
+                        color: #FFF;
+                    }
+                }
+            }
+        }
     }
 
 `;
