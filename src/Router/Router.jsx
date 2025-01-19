@@ -9,6 +9,9 @@ import Contact from "../Pages/Contactus";
 import Products from "../Pages/Products";
 import Wishlist from "../Pages/Wishlist";
 import Orderlist from "../Pages/Orderlist";
+import UpcomingOrders from "../Components/UpcomingOrders";
+import PreviousOrders from "../Components/PreviousOrders";
+import CancelledOrders from "../Components/CancelledOrders";
 
 
 
@@ -26,7 +29,12 @@ function Router() {
                         <Route exact path='blog' element={<Blog/>}/>
                         <Route exact path='products' element={<Products/>}/>
                         <Route exact path='wishlist' element={<Wishlist/>}/>
-                        <Route exact path='orderlist' element={<Orderlist/>}/>
+                        <Route exact path='orderlist' element={<Orderlist/>}>
+                            <Route path='' element={<Navigate to="upcoming-orders" />} />
+                            <Route exact path='upcoming-orders' element={<UpcomingOrders/>} />
+                            <Route exact path='previous-orders' element={<PreviousOrders/>} />
+                            <Route exact path='cancelled-orders' element={<CancelledOrders/>} />
+                        </Route>
                     </Route>
                 </Routes>
             </BrowserRouter>

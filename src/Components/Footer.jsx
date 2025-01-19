@@ -19,7 +19,7 @@ function Footer({setShowAuth, setAuthToggle}) {
         <>
             <FooterWrapper>
                 <div className="wave">
-                    <img src="images/footer-wave.png" alt="wave" />
+                    <img src="/images/footer-wave.png" alt="wave" />
                 </div>
                 <div className="footer_sec">
                     <div className="footer_top">
@@ -27,7 +27,7 @@ function Footer({setShowAuth, setAuthToggle}) {
                             <div className="box">
                                 <div className="box_inner">
                                     <div className="footer_logo">
-                                        <img src="images/Logo.png" alt="logo" />
+                                        <img src="/images/Logo.png" alt="logo" />
                                     </div>
                                     <div className="brief_about">
                                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, velit dolor deserunt amet nobis fugit suscipit at veritatis excepturi explicabo? Aperiam itaque eveniet, eum tenetur deleniti impedit optio fugit aspernatur autem esse vel ipsum laudantium ullam error accusantium doloribus</p>

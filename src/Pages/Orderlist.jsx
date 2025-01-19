@@ -1,4 +1,7 @@
+import { NavLink, Outlet } from "react-router-dom";
+import { DataContext } from "../Layouts/DataContext";
 import { OrderlistWrapper } from "../Styles/Orderlist-Style";
+
 
 
 function Orderlist() {
@@ -13,17 +16,19 @@ function Orderlist() {
                         <div className="left_sec">
                             <div className="sec_inner">
                                 <div className="order_type">
-                                    <a>Current Order<i className="fa-solid fa-arrow-right-long"></i></a>
+                                    <NavLink to="upcoming-orders">Current Order<i className="fa-solid fa-arrow-right-long"></i></NavLink>
                                 </div>
                                 <div className="order_type">
-                                    <a>Previous Order<i className="fa-solid fa-arrow-right-long"></i></a>
+                                    <NavLink to="previous-orders">Previous Order<i className="fa-solid fa-arrow-right-long"></i></NavLink>
                                 </div>
                                 <div className="order_type">
-                                    <a>Cancell Order<i className="fa-solid fa-arrow-right-long"></i></a>
+                                    <NavLink to="cancelled-orders">Cancelled Order<i className="fa-solid fa-arrow-right-long"></i></NavLink>
                                 </div>
                             </div>
                         </div>
-                        <div className="right_sec"></div>
+                        <div className="right_sec">
+                            <Outlet />
+                        </div>
                     </div>
                 </div>
             </OrderlistWrapper>

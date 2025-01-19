@@ -65,40 +65,48 @@ export const OrderlistWrapper = styled('div')`
                     .order_type {
                         position: relative;
                         width: 100%;
-                        display: flex;
-                        padding: 10px 25px;
-                        background: #E1E0EA;
-                        border-radius: 8px;
-                        cursor: pointer;
-                        margin-bottom: 30px;
+                        margin-bottom: 20px;
 
                         a {
                             position: relative;
                             width: 100%;
-                            height: 40px;
+                            height: 50px;
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
-                            font-size: 18px;
+                            font-size: 15px;
                             font-family: 'Poppins', sans-serif;
                             font-weight: 500;
                             color: #000;
+                            background: #e1e0eab9;
+                            text-decoration: none;
+                            padding: 0 25px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            transition: all 0.5s;
 
                             i {
                                 position: relative;
-                                font-size: 20px;
+                                font-size: 16px;
+                                opacity: 0;
                             }
 
                             &:hover {
+                                transition: all 0.5s;
+                                box-shadow: 3px 3px 6px rgba(0,0,0,0.2),
+                                            -2px -2px 5px rgba(100,100,100,0.2);
+                            }
+
+                            &.active {
+                                background: #3F00FF;
                                 color: #fff;
+
+                                i {
+                                    opacity: 1;
+                                }
                             }
                         }
 
-                        &:hover {
-                            background: #3F00FF;
-                            box-shadow: 3px 3px 6px rgba(0,0,0,0.2),
-                                        -2px -2px 5px rgba(100,100,100,0.2);
-                        }
 
                         &:last-child {
                             margin-bottom: 0;

@@ -73,7 +73,7 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, 
         <>
             <NavWrapper>
                 <div className="nav_inner">
-                    <img src="images/Logo.png" alt="Logo" />
+                    <img src="/images/Logo.png" alt="Logo" />
                     <div className="nav_items">
                         <li><NavLink to="/home" className="nav_item">Home</NavLink></li>
                         <li>
@@ -107,7 +107,7 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, 
                         <div className="nav_profile">
                             <div className="profile_btn" onClick={handleDropdownToggle}>
                                 <div className="img">
-                                    <img src="images/profile_img.jpeg" alt="image" />
+                                    <img src="/images/profile_img.jpeg" alt="image" />
                                 </div>
                                 <div className="profile">
                                     <h5>{userName}</h5>
