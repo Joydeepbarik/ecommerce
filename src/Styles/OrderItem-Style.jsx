@@ -17,7 +17,7 @@ export const OrderItemWrapper = styled('div')`
             flex-direction: column;
             padding-bottom: 20px;
             margin-top: 20px;
-            border-bottom: 1px dashed #7a7a7a;
+            border-bottom: 1px solid #7a7a7a;
 
             .top_box {
                 position: relative;
@@ -50,6 +50,7 @@ export const OrderItemWrapper = styled('div')`
                         position: relative;
                         width: 100%;
                         display: flex;
+                        flex-direction: column;
                         margin-bottom: 5px;
 
                         h5 {
@@ -58,7 +59,21 @@ export const OrderItemWrapper = styled('div')`
                             font-weight: 600;
                             color: #000;
                             font-family: "SUSE", sans-serif;
+                            margin-bottom: 3px;
                         }
+
+                        p {
+                            position: relative;
+                            font-size: 14px;
+                            color: #000;
+                            font-family: 'Poppins', sans-serif;
+
+                            span {
+                                color: #555;
+                            }
+
+                        }
+
                     }
 
                     .bottom_content {
@@ -128,8 +143,14 @@ export const OrderItemWrapper = styled('div')`
                         cursor: pointer;
                         transition: all 0.5s;
 
+                        i {
+                            margin-right: 10px;
+                        }
+
                         &:last-child {
                             margin-right: 0;
+                            background: #009900;
+                            color: #fff;
                         }
 
                         &:hover {
