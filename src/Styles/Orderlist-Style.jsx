@@ -120,6 +120,12 @@ export const OrderlistWrapper = styled('div')`
                 width: calc(100% - 350px);
                 display: flex;
                 padding: 20px 30px;
+
+                .sec_inner {
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                }
             }
         }
     }

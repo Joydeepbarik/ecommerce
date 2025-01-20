@@ -27,7 +27,9 @@ function Orderlist() {
                             </div>
                         </div>
                         <div className="right_sec">
-                            <Outlet />
+                            <div className="sec_inner">
+                                <Outlet />
+                            </div>
                         </div>
                     </div>
                 </div>
