@@ -37,6 +37,7 @@ function Router() {
                             <Route exact path='previous-orders' element={<PreviousOrders/>} />
                             <Route exact path='cancelled-orders' element={<CancelledOrders/>} />
                         </Route>
+                        <Route exact path='payment' element={<Payment/>} />
                     </Route>
                 </Routes>
             </BrowserRouter>

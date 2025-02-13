@@ -6,6 +6,9 @@ function PreviousOrders() {
             <OrderItemWrapper>
                 <div className="wrapper_inner">
                     <div className="order_box">
+                        <div className="order_id">
+                            <p>Oreder Id : <span>0124544545</span></p>
+                        </div>
                         <div className="top_box">
                             <div className="content_left">
                                 <img src="/images/Banner-1.png" alt="image" />
@@ -16,8 +19,8 @@ function PreviousOrders() {
                                     <p>Price (Rs.) : <span>24000/-</span></p>
                                 </div>
                                 <div className="bottom_content">
-                                    <a>qty - 1</a>
-                                    <p>Total Amt : <span>24000/-</span></p>
+                                    <a>Qty : 1</a>
+                                    <p>Price : <span>24000/-</span></p>
                                 </div>
                             </div>
                         </div>

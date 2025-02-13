@@ -19,6 +19,28 @@ export const OrderItemWrapper = styled('div')`
             margin-top: 20px;
             border-bottom: 1px solid #7a7a7a;
 
+            .order_id {
+                position: relative;
+                width: 100%;
+                display: flex;
+                margin-bottom: 10px;
+
+                p {
+                    position: relative;
+                    font-size: 14px;
+                    color: #000;
+                    font-family: 'Poppins', sans-serif;
+                    font-weight: 500;
+
+                    span {
+                        position: relative;
+                        color: #555;
+                        font-size: 15px;
+                    }
+                }
+
+            }
+
             .top_box {
                 position: relative;
                 width: 100%;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { CheckoutWrapper } from "../Styles/Modal-Style";
 import { Product_Image_URL } from "../Api/Api";
+import { NavLink } from "react-router-dom";
 
 
 function CheckoutModal({checkoutModal, setCheckoutModal}) {
@@ -12,6 +13,10 @@ function CheckoutModal({checkoutModal, setCheckoutModal}) {
     const [grandTotalPrice, setGrandTotalPrice] = useState('');
 
     function closeCheckout() {
+        setCheckoutModal(false);
+    }
+
+    function closePayment() {
         setCheckoutModal(false);
     }
 
@@ -81,7 +86,7 @@ function CheckoutModal({checkoutModal, setCheckoutModal}) {
                             <p>Rs. <span>{grandTotalPrice}</span>/-</p>
                         </div>
                         <div className="btn">
-                            <button>Pay Now</button>
+                            <button onClick={closePayment}><NavLink to="/payment">Pay Now</NavLink></button>
                         </div>
                     </div>
                 </div>

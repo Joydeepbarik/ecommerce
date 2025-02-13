@@ -1137,7 +1137,6 @@ export const CheckoutWrapper = styled('div')`
                 position: relative;
                 width: 200px;
                 height: 40px;
-                
 
                 button {
                     position: relative;
@@ -1155,6 +1154,7 @@ export const CheckoutWrapper = styled('div')`
                     font-weight: 500;
                     font-family: 'Poppins', sans-serif;
                     cursor: pointer;
+                    list-style: none;
                 }
             }
         }
