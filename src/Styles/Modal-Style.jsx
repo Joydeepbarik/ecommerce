@@ -891,3 +891,272 @@ export const MobileWrapper = styled('div')`
     }
 
 `;
+
+export const CheckoutWrapper = styled('div')`
+    position: fixed;
+    top: 70px;
+    right: -150%;
+    width: 420px;
+    height: calc(100vh - 70px);
+    z-index: 450;
+    background: #FFF;
+    transition: all 0.6s ease-in-out;
+    box-shadow: -8px 0px 15px rgba(0,0,0,0.2);
+
+    &.active {
+        right: 0;
+        transition: all 0.6s ease-in-out;
+    }
+
+     .checkout_inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .head_sec {
+            position: relative;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            padding: 0px 25px;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+
+            h5 {
+                position: relative;
+                font-size: 18px;
+                font-weight: 600;
+                color: #000;
+                font-family: 'Oleo Script', cursive;
+            }
+
+            a {
+                position: relative;
+                font-size: 18px;
+                color: #555;
+                cursor: pointer;
+            }
+        }
+
+        .content_section {
+            position: relative;
+            width: 100%;
+            height: calc(100% - 120px);
+            display: flex;
+            padding: 20px 25px;
+
+            .sec_inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+                scrollbar-width: none;
+
+                .item_box_sec {
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .item_box {
+                        position: relative;
+                        width: 100%;
+                        display: flex;
+                        margin-top: 12px;
+                        padding-bottom: 15px;
+                        border-bottom: 1px solid #ccc;
+
+                        &:first-child {
+                            margin-top: 0;
+                        }
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        .box_inner {
+                            position: relative;
+                            display: flex;
+                            width: 100%;
+                            align-items: center;
+
+                            .img_box {
+                                position: relative;
+                                width: 80px;
+                                height: 80px;
+                                display: flex;
+                                border-radius: 6px;
+
+                                img {
+                                    position: relative;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: contain;
+                                }
+                            }
+
+                            .content_box {
+                                position: relative;
+                                width: calc(100% - 80px);
+                                display: flex;
+                                flex-direction: column;
+                                padding-left: 20px;
+                                /* padding: 0 15px; */
+
+                                h5 {
+                                    position: relative;
+                                    display: flex;
+                                    font-family: "SUSE", sans-serif;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #000;
+                                }
+
+                                p {
+                                    position: relative;
+                                    display: flex;
+                                    font-family: 'Poppins', sans-serif;
+                                    font-size: 13px;
+                                    color: #555;
+                                    margin-top: 5px;
+
+                                    span {
+                                        padding-left: 8px;
+                                        font-size: 13px;
+
+                                        i {
+                                            position: relative;
+                                            font-size: 12px;
+                                            margin-right: 2px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .extra_charge {
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 10px;
+                    border-top: 1px solid #828282;
+                    padding-top: 10px;
+
+                    p {
+                        position: relative;
+                        display: flex;
+                        justify-content: space-between;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 14px;
+                        color: #000;
+                        margin: 2px 0;
+
+                        span {
+                            font-size: 15px;
+                        }
+
+                    }
+                }
+
+                .total_charge {
+                    position: relative;
+                    width: 100%;
+                    margin-top: 10px;
+                    padding-top: 10px;
+                    border-top: 1px solid #333;
+
+                    p {
+                        position: relative;
+                        display: flex;
+                        justify-content: space-between;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 17px;
+                        color: #000;
+                        font-weight: 600;
+
+                        span {
+                            font-size: 17px;
+                            font-weight: 600;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .bottom_section {
+            position: relative;
+            width: 100%;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 25px;
+            border-top: 1px solid #ccc;
+
+            .total_sec {
+                position: relative;
+                /* width: 100%; */
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    position: relative;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: #000;
+                }
+
+                p {
+                    position: relative;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 15px;
+                    font-weight: 500;
+                    color: #000;
+
+                    span {
+                        position: relative;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 18px;
+                        font-weight: 500;
+                        color: #000;
+                    }
+                }
+            }
+
+            .btn {
+                position: relative;
+                width: 200px;
+                height: 40px;
+                
+
+                button {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border: none;
+                    background: #3F00FF;
+                    color: #FFF;
+                    font-size: 15px;
+                    font-weight: 500;
+                    font-family: 'Poppins', sans-serif;
+                    cursor: pointer;
+                }
+            }
+        }
+     }
+`;

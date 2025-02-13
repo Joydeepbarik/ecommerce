@@ -9,8 +9,8 @@ import Auth from "../Modals/Auth-Modal";
 import Cart from "../Modals/Cart";
 import Auth_Confimation_Modal from "../Modals/Auth-Confirmation-Modal";
 import MobileNavigation from "../Modals/Mobile-Navigation";
-
-
+import Loader from "../Components/Loader";
+import CheckoutModal from "../Modals/Checkout-Modal";
 
 
 
@@ -28,6 +28,8 @@ function Layout() {
         return storedItems;
     });
     const [wishlistItems, setWishlistItems] = useState([]);
+    const [checkoutModal, setCheckoutModal] = useState(false);
+
 
 
     useEffect(() => {
@@ -48,6 +50,7 @@ function Layout() {
 
     return(
         <>
+            {/* <Loader/> */}
             <LayoutWrapper>
                 <NavBar loginStatus={loginStatus} setLoginStatus={setLoginStatus} setShowAuth={setShowAuth} setSelectedCategory={setSelectedCategory} showMobileNav={showMobileNav} setshowMobileNav={setshowMobileNav} />
                 <DataContext.Provider value={{selectedCategory, setSelectedCategory, cartItems, setCartItems, setConfirmationModalShow, wishlistItems, setWishlistItems}}>
@@ -60,7 +63,8 @@ function Layout() {
                 </div>
             </LayoutWrapper>
             <Auth showAuth={showAuth} setShowAuth={setShowAuth} authToggle={authToggle} setAuthToggle={setAuthToggle} setLoginStatus={setLoginStatus} />
-            <Cart showCart={showCart} setShowCart={setShowCart} cartItems={cartItems} setCartItems={setCartItems} />
+            <Cart showCart={showCart} setShowCart={setShowCart} cartItems={cartItems} setCartItems={setCartItems} setCheckoutModal={setCheckoutModal}  />
+            <CheckoutModal checkoutModal={checkoutModal} setCheckoutModal={setCheckoutModal} />
             <MobileNavigation showMobileNav={showMobileNav} setshowMobileNav={setshowMobileNav}  />
             <Auth_Confimation_Modal confirmationModalShow={confirmationModalShow} setConfirmationModalShow={setConfirmationModalShow} setShowAuth={setShowAuth} />
         </>

@@ -12,6 +12,8 @@ import Orderlist from "../Pages/Orderlist";
 import UpcomingOrders from "../Components/UpcomingOrders";
 import PreviousOrders from "../Components/PreviousOrders";
 import CancelledOrders from "../Components/CancelledOrders";
+import Payment from "../Pages/Payment";
+
 
 
 

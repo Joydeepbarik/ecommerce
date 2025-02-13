@@ -28,7 +28,7 @@ export const OrderlistWrapper = styled('div')`
                 span {
                     font-family: 'Oleo Script',cursive;
                     font-size: 38px;
-                    color: #E5322D;
+                    color: #3F00FF;
                     margin-left: 8px;
                 }
             }

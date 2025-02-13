@@ -4,7 +4,7 @@ import { Product_Image_URL } from "../Api/Api";
 
 
 
-function Cart({showCart, setShowCart, cartItems, setCartItems}) {
+function Cart({showCart, setShowCart, cartItems, setCartItems, setCheckoutModal}) {
 
     function closeCart() {
         setShowCart(false);
@@ -46,6 +46,11 @@ function Cart({showCart, setShowCart, cartItems, setCartItems}) {
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
+
+    function handleRedirectToCheckout() {
+        setShowCart(false);
+        setCheckoutModal(true);
+    }
     
 
     return(
@@ -99,7 +104,7 @@ function Cart({showCart, setShowCart, cartItems, setCartItems}) {
                             <p>Rs. <span>{calculateTotal()}</span>/-</p>
                         </div>
                         <div className="btn">
-                            <button>Checkout</button>
+                            <button onClick={handleRedirectToCheckout}>Checkout</button>
                         </div>
                     </div>
                 </div>

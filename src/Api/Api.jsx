@@ -1,4 +1,5 @@
-export const BaseUrl = "http://localhost/E-Commerce-Backend";
+export const BaseUrl = "https://designer-sourish.co.in/Ecommerce-Backend";
+// export const BaseUrl = "http://localhost/E-Commerce-Backend";
 export const Product_Image_URL = `${BaseUrl}/Product-images`;
 export const Blog_Image_URL = `${BaseUrl}/Blog-images`;
 
