@@ -9,15 +9,26 @@ export const OrderItemWrapper = styled('div')`
         width: 100%;
         display: flex;
         flex-direction: column;
+        padding-top: 0;
+        padding-left: 50px;
+        padding-right: 0;
 
         .order_box {
             position: relative;
             width: 100%;
             display: flex;
             flex-direction: column;
-            padding-bottom: 20px;
-            margin-top: 20px;
-            border-bottom: 1px solid #7a7a7a;
+            padding-bottom: 35px;
+            margin-top: 35px;
+            border-bottom: thick double #000;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
 
             .order_id {
                 position: relative;
@@ -41,88 +52,159 @@ export const OrderItemWrapper = styled('div')`
 
             }
 
-            .top_box {
+            .order_item_sec {
                 position: relative;
                 width: 100%;
                 display: flex;
-                align-items: center;
+                flex-direction: column;
 
-                .content_left {
+                .order_item_box {
                     position: relative;
-                    width: 150px;
-                    height: 100px;
+                    width: 100%;
                     display: flex;
-                    border-radius: 8px;
-                    margin-right: 25px;
+                    align-items: center;
+                    padding: 10px 0;
 
-                    img {
-                        position: relative;
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
                         width: 100%;
-                        height: 100%;
+                        height: 1px;
+                        background: linear-gradient(to right, #828282, #fff);
                     }
-                }
 
-                .content_right {
-                    position: relative;
-                    width: calc(100% - 150px);
-                    display: flex;
-                    flex-direction: column;
+                    &:last-child::before {
+                        display: none;
+                    }
 
-                    .top_content {
+                    .content_left {
                         position: relative;
-                        width: 100%;
+                        width: 150px;
+                        height: 100px;
+                        display: flex;
+                        border-radius: 8px;
+                        margin-right: 25px;
+
+                        img {
+                            position: relative;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .content_right {
+                        position: relative;
+                        width: calc(100% - 150px);
                         display: flex;
                         flex-direction: column;
-                        margin-bottom: 5px;
 
-                        h5 {
+                        .top_content {
                             position: relative;
-                            font-size: 19px;
-                            font-weight: 600;
-                            color: #000;
-                            font-family: "SUSE", sans-serif;
-                            margin-bottom: 3px;
-                        }
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            margin-bottom: 5px;
 
-                        p {
-                            position: relative;
-                            font-size: 14px;
-                            color: #000;
-                            font-family: 'Poppins', sans-serif;
+                            h5 {
+                                position: relative;
+                                font-size: 19px;
+                                font-weight: 600;
+                                color: #000;
+                                font-family: "SUSE", sans-serif;
+                                margin-bottom: 3px;
+                            }
 
-                            span {
-                                color: #555;
+                            p {
+                                position: relative;
+                                font-size: 14px;
+                                color: #000;
+                                font-family: 'Poppins', sans-serif;
+
+                                span {
+                                    color: #555;
+                                }
+
                             }
 
                         }
 
-                    }
-
-                    .bottom_content {
-                        position: relative;
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-
-                        a {
+                        .bottom_content {
                             position: relative;
-                            font-size: 13px;
-                            color: #555;
-                            font-family: 'Poppins', sans-serif;
-                        }
+                            width: 100%;
+                            display: flex;
+                            justify-content: space-between;
 
-                        p {
-                            position: relative;
-                            font-size: 14px;
-                            color: #000;
-                            font-family: 'Poppins', sans-serif;
-
-                            span {
+                            a {
+                                position: relative;
+                                font-size: 13px;
                                 color: #555;
+                                font-family: 'Poppins', sans-serif;
                             }
 
+                            p {
+                                position: relative;
+                                font-size: 14px;
+                                color: #000;
+                                font-family: 'Poppins', sans-serif;
+
+                                span {
+                                    color: #555;
+                                }
+
+                            }
                         }
                     }
+                }
+            }
+
+            .extra_charge {
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                border-top: 1px solid #828282;
+                padding-top: 10px;
+
+                p {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 14px;
+                    color: #000;
+                    margin: 2px 0;
+
+                    span {
+                        font-size: 15px;
+                    }
+
+                }
+            }
+
+            .total_charge {
+                position: relative;
+                width: 100%;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px solid #828282;
+
+                p {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+                    font-family: 'Poppins', sans-serif;
+                    font-size: 17px;
+                    color: #000;
+                    font-weight: 600;
+
+                    span {
+                        font-size: 17px;
+                        font-weight: 600;
+                    }
+
                 }
             }
 
@@ -132,6 +214,7 @@ export const OrderItemWrapper = styled('div')`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                margin-top: 20px;
 
                 .status_box {
                     position: relative;
@@ -184,6 +267,22 @@ export const OrderItemWrapper = styled('div')`
                 }
             }
 
+        }
+
+        .empty_msg {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                position: relative;
+                color: #b4b4b4;
+                font-family: 'Poppins', sans-serif;
+                font-size: 22px;
+                font-weight: 500;
+            }
         }
     }    
 `;

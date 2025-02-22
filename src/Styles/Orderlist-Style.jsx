@@ -41,8 +41,10 @@ export const OrderlistWrapper = styled('div')`
             margin-top: 35px;
 
             .left_sec {
-                position: relative;
+                position: sticky;
+                top: 100px;
                 width: 350px;
+                height: 100vh;
                 display: flex;
                 padding: 20px 30px;
 

@@ -12,10 +12,7 @@ import Orderlist from "../Pages/Orderlist";
 import UpcomingOrders from "../Components/UpcomingOrders";
 import PreviousOrders from "../Components/PreviousOrders";
 import CancelledOrders from "../Components/CancelledOrders";
-import Payment from "../Pages/Payment";
-
-
-
+import Ordersuccess from "../Pages/Ordersuccess";
 
 
 function Router() {
@@ -37,8 +34,8 @@ function Router() {
                             <Route exact path='previous-orders' element={<PreviousOrders/>} />
                             <Route exact path='cancelled-orders' element={<CancelledOrders/>} />
                         </Route>
-                        <Route exact path='payment' element={<Payment/>} />
                     </Route>
+                    <Route exact path='success' element={<Ordersuccess/>}/>
                 </Routes>
             </BrowserRouter>
         </>

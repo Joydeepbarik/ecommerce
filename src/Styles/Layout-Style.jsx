@@ -11,6 +11,7 @@ export const LayoutWrapper = styled('div')`
         position: fixed;
         right: 45px;
         bottom: 30px;
+        z-index: 99;
 
         a {
             position: relative;
@@ -81,6 +82,71 @@ export const LayoutWrapper = styled('div')`
                     font-size: 11px;
                     font-weight: 500;
                     color: #FFF;
+                }
+            }
+        }
+    }
+`;
+
+export const OrderSuccessWrapper = styled('div')`
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+
+    .success_inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .page_icon {
+            position: relative;
+            display: flex;
+
+            img {
+                position: relative;
+                width: 220px;
+                height: auto;
+            }
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+
+            h3 {
+                position: relative;
+                font-family: 'Oleo Script', cursive;
+                font-size: 40px;
+                color: rgb(2, 192, 255);
+            }
+
+            h5 {
+                position: relative;
+                font-family: 'Poppins', sans-serif;
+                font-size: 22px;
+                font-weight: 600;
+                color: #4bb543;
+                margin-top: 3px;
+            }
+
+            p {
+                position: relative;
+                font-family: 'Poppins', sans-serif;
+                font-size: 17px;
+                font-weight: 500;
+                margin-top: 20px;
+                color: rgb(170, 170, 170);
+
+                span {
+                    color: #3F00FF;
                 }
             }
         }

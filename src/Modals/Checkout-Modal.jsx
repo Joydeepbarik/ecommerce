@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 import { CheckoutWrapper } from "../Styles/Modal-Style";
-import { Product_Image_URL } from "../Api/Api";
-import { NavLink } from "react-router-dom";
+import { Payment_URL, Product_Image_URL } from "../Api/Api";
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Bounce } from 'react-toastify';
+import axios from "axios";
 
 
-function CheckoutModal({checkoutModal, setCheckoutModal}) {
 
+function CheckoutModal({checkoutModal, setCheckoutModal, loginStatus}) {
+
+    const [userName, setUserName] = useState('');
     const [selectedItems, setSelectedItems] = useState([]);
     const [deliveryCharge, setDeliveryCharge] = useState("40");
     const [gstPrice, setGstPrice] = useState('');
@@ -16,27 +22,78 @@ function CheckoutModal({checkoutModal, setCheckoutModal}) {
         setCheckoutModal(false);
     }
 
-    function closePayment() {
-        setCheckoutModal(false);
-    }
+    useEffect(() => {
+        const user = localStorage.getItem("userData");
+        if(user) {
+            const userData = JSON.parse(user);
+            if(loginStatus) {
+                setUserName(userData.user);
+            }
+        }
+    }, [loginStatus]);
 
     useEffect(() => {
         let savedItems = localStorage.getItem("cartItems");
-        const itemArray = JSON.parse(savedItems);
-        setSelectedItems(itemArray);
-        console.log(itemArray);
-        if(itemArray) {
-            let itemTotal = 0;
-            itemArray.forEach(item => {
-                itemTotal += item.price * item.quantity;
-            });
-            setTotalPrice(itemTotal.toFixed(2));
-            let gst = itemTotal * 0.18;
-            setGstPrice(gst.toFixed(2));
-            let total = itemTotal + parseFloat(gst) + parseFloat(deliveryCharge);
-            setGrandTotalPrice(total.toFixed(2));
+        if(savedItems) {
+            const itemArray = JSON.parse(savedItems);
+            setSelectedItems(itemArray);
+            console.log(itemArray);
+            if(itemArray) {
+                let itemTotal = 0;
+                itemArray.forEach(item => {
+                    itemTotal += item.price * item.quantity;
+                });
+                setTotalPrice(itemTotal.toFixed(2));
+                let gst = itemTotal * 0.18;
+                setGstPrice(gst.toFixed(2));
+                let total = itemTotal + parseFloat(gst) + parseFloat(deliveryCharge);
+                setGrandTotalPrice(parseFloat(total).toFixed(2));
+            }
         }
     }, [checkoutModal]);
+
+
+    const handlePayment = () => {
+        if(loginStatus) {
+            const inputs = {
+                username: userName,
+                products: JSON.stringify(selectedItems),
+                deliveryCharge: deliveryCharge,
+                gstPrice: gstPrice,
+                totalPrice: totalPrice,
+                grandTotalPrice: grandTotalPrice
+            };
+            axios.post(Payment_URL, inputs, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
+            .then(res => {
+                console.log(res);
+                if(res.data.success) {
+                    window.location.href = res.data.paymentUrl;
+                } else {
+                    console.log('Payment failed: ' + res.data.message);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        } else {
+            toast.warn('Please login to place an order.', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        }
+    }
 
 
     return(
@@ -86,7 +143,7 @@ function CheckoutModal({checkoutModal, setCheckoutModal}) {
                             <p>Rs. <span>{grandTotalPrice}</span>/-</p>
                         </div>
                         <div className="btn">
-                            <button onClick={closePayment}><NavLink to="/payment">Pay Now</NavLink></button>
+                            <button onClick={handlePayment}>Pay Now</button>
                         </div>
                     </div>
                 </div>

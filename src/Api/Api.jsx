@@ -21,3 +21,9 @@ export const Fetch_Products_Categorywise_URL = `${BaseUrl}/Public/fetch-products
 export const Add_Wishlist_URL = `${BaseUrl}/Public/add-wishlist.php`;
 export const Fetch_Wishlist_URL = `${BaseUrl}/Public/fetch-wishlist.php`;
 export const Delete_Wishlist_URL = `${BaseUrl}/Public/wishlist-delete.php`;
+
+// Payment 
+export const Payment_URL = `${BaseUrl}/Public/payment.php`;
+
+//Orderlist Fetch
+export const Fetch_Upcomming_Orderlist_URL = `${BaseUrl}/Public/upcoming-orderlist.php`;

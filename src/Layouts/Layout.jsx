@@ -64,7 +64,7 @@ function Layout() {
             </LayoutWrapper>
             <Auth showAuth={showAuth} setShowAuth={setShowAuth} authToggle={authToggle} setAuthToggle={setAuthToggle} setLoginStatus={setLoginStatus} />
             <Cart showCart={showCart} setShowCart={setShowCart} cartItems={cartItems} setCartItems={setCartItems} setCheckoutModal={setCheckoutModal}  />
-            <CheckoutModal checkoutModal={checkoutModal} setCheckoutModal={setCheckoutModal} />
+            <CheckoutModal checkoutModal={checkoutModal} setCheckoutModal={setCheckoutModal} loginStatus={loginStatus} />
             <MobileNavigation showMobileNav={showMobileNav} setshowMobileNav={setshowMobileNav}  />
             <Auth_Confimation_Modal confirmationModalShow={confirmationModalShow} setConfirmationModalShow={setConfirmationModalShow} setShowAuth={setShowAuth} />
         </>

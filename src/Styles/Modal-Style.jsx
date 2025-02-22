@@ -694,6 +694,7 @@ export const CartWrapper = styled('div')`
                     font-size: 15px;
                     font-weight: 500;
                     font-family: 'Poppins', sans-serif;
+                    cursor: pointer;
                 }
             }
         }
@@ -1154,7 +1155,7 @@ export const CheckoutWrapper = styled('div')`
                     font-weight: 500;
                     font-family: 'Poppins', sans-serif;
                     cursor: pointer;
-                    list-style: none;
+                    text-decoration: none;
                 }
             }
         }
