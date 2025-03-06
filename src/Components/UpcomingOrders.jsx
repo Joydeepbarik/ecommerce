@@ -65,7 +65,7 @@ function UpcomingOrders() {
                                         <p>Delivary Charge: <span>{parseFloat(orderitem.delivary_charge).toFixed()}/-</span></p>
                                         <p>GST(18%): <span>{orderitem.gst}/-</span></p>
                                     </div>
-                                    <div className="total_charge">
+                                    <div className="total_charge"> 
                                         <p>Total Amount: <span>{orderitem.grand_total}/-</span></p>
                                     </div>
                                     <div className="bottom_box">
@@ -74,7 +74,7 @@ function UpcomingOrders() {
                                         </div>
                                         <div className="btn_box">
                                             <button><i className="fa-solid fa-eye"></i>View Product</button>
-                                            <button><i className="fa-solid fa-download"></i>Download Invoice</button>
+                                            <a href="https://designer-sourish.co.in/Ecommerce-Backend/Invoice/invoice.png" target="_blank" download="invoice.png"><i className="fa-solid fa-download"></i>Download Invoice</a>
                                         </div>
                                     </div>
                                 </div>

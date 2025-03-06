@@ -11,6 +11,8 @@ import Auth_Confimation_Modal from "../Modals/Auth-Confirmation-Modal";
 import MobileNavigation from "../Modals/Mobile-Navigation";
 import Loader from "../Components/Loader";
 import CheckoutModal from "../Modals/Checkout-Modal";
+import Profile from "../Modals/Profile-Modal";
+
 
 
 
@@ -29,6 +31,7 @@ function Layout() {
     });
     const [wishlistItems, setWishlistItems] = useState([]);
     const [checkoutModal, setCheckoutModal] = useState(false);
+    const [profileShow, setProfileShow] = useState(false);
 
 
 
@@ -52,7 +55,7 @@ function Layout() {
         <>
             {/* <Loader/> */}
             <LayoutWrapper>
-                <NavBar loginStatus={loginStatus} setLoginStatus={setLoginStatus} setShowAuth={setShowAuth} setSelectedCategory={setSelectedCategory} showMobileNav={showMobileNav} setshowMobileNav={setshowMobileNav} />
+                <NavBar loginStatus={loginStatus} setLoginStatus={setLoginStatus} setShowAuth={setShowAuth} setSelectedCategory={setSelectedCategory} showMobileNav={showMobileNav} setshowMobileNav={setshowMobileNav} setProfileShow={setProfileShow} />
                 <DataContext.Provider value={{selectedCategory, setSelectedCategory, cartItems, setCartItems, setConfirmationModalShow, wishlistItems, setWishlistItems}}>
                     <Outlet/>
                 </DataContext.Provider>
@@ -67,6 +70,7 @@ function Layout() {
             <CheckoutModal checkoutModal={checkoutModal} setCheckoutModal={setCheckoutModal} loginStatus={loginStatus} />
             <MobileNavigation showMobileNav={showMobileNav} setshowMobileNav={setshowMobileNav}  />
             <Auth_Confimation_Modal confirmationModalShow={confirmationModalShow} setConfirmationModalShow={setConfirmationModalShow} setShowAuth={setShowAuth} />
+            <Profile profileShow={profileShow} setProfileShow={setProfileShow} />
         </>
     );
 }

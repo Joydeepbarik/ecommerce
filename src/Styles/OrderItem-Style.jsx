@@ -252,10 +252,32 @@ export const OrderItemWrapper = styled('div')`
                             margin-right: 10px;
                         }
 
-                        &:last-child {
-                            margin-right: 0;
-                            background: #009900;
-                            color: #fff;
+                        &:hover {
+                            transition: all 0.5s;
+                            box-shadow: 3px 3px 6px rgba(0,0,0,0.2),
+                                        -2px -2px 5px rgba(100,100,100,0.2);
+                        }
+                    }
+
+                    a {
+                        position: relative;
+                        height: 40px;
+                        border-radius: 8px;
+                        padding: 0 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 15px;
+                        color: #fff;
+                        font-family: 'Poppins', sans-serif;
+                        border: none;
+                        background: #009900;
+                        cursor: pointer;
+                        transition: all 0.5s;
+                        text-decoration: none;
+
+                        i {
+                            margin-right: 10px;
                         }
 
                         &:hover {

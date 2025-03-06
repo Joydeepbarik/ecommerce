@@ -10,12 +10,21 @@ import { Bounce } from 'react-toastify';
 
 
 
-function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, showMobileNav, setshowMobileNav}) {
+function NavBar({loginStatus, setLoginStatus, setShowAuth, showMobileNav, setshowMobileNav, setProfileShow}) {
 
     const [userName, setUserName] = useState('');
     const [categories, setCategories] = useState([]);
     const [showProfile, setShowProfile] = useState(false);
     const [profileDropdownShow, setProfileDropdownShow] = useState(false);
+
+    function openProfile() {
+        setProfileDropdownShow(false);
+        setProfileShow(true);
+    }
+
+    function closeProfile() {
+        setProfileDropdownShow(false);
+    }
 
 
     useEffect(() => {
@@ -53,6 +62,7 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, 
     const handleLogout = () => {
         setLoginStatus(false);
         setShowProfile(false);
+        setProfileDropdownShow(false);
         setUserName('');
         localStorage.setItem("login", false);
         localStorage.removeItem("userData");
@@ -115,9 +125,9 @@ function NavBar({loginStatus, setLoginStatus, setShowAuth, setSelectedCategory, 
                             </div>
                             <div className={`profile_dropdown ${profileDropdownShow ? 'active' : ''}`}>
                                 <div className="dropdown_inner">
-                                    <a><i className="fa-solid fa-user"></i>My Profile</a>
-                                    <Link to="/wishlist"><i className="fa-solid fa-heart"></i>My Wishlist</Link>
-                                    <Link to="/orderlist"><i className="fa-solid fa-box-open"></i>My Orders</Link>
+                                    <a onClick={openProfile}><i className="fa-solid fa-user"></i>My Profile</a>
+                                    <Link to="/wishlist" onClick={closeProfile}><i className="fa-solid fa-heart"></i>My Wishlist</Link>
+                                    <Link to="/orderlist" onClick={closeProfile}><i className="fa-solid fa-box-open"></i>My Orders</Link>
                                     <a onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i>Logout</a>
                                 </div>
                             </div>

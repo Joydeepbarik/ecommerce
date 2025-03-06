@@ -7,32 +7,39 @@ function PreviousOrders() {
                 <div className="wrapper_inner">
                     <div className="order_box">
                         <div className="order_id">
-                            <p>Oreder Id : <span>0124544545</span></p>
+                            <p>Order Id : <span>01235455455a</span></p>
                         </div>
-                        <div className="order_tem_sec">
+                        <div className="order_item_sec">
                             <div className="order_item_box">
                                 <div className="content_left">
-                                    <img src="/images/Banner-1.png" alt="image" />
+                                   <img src="/images/Banner-2.png" alt="image" />
                                 </div>
                                 <div className="content_right">
                                     <div className="top_content">
                                         <h5>Laptop</h5>
-                                        <p>Price (Rs.) : <span>24000/-</span></p>
+                                        <p>Price : <span><i className="fa-solid fa-indian-rupee-sign"></i></span></p>
                                     </div>
                                     <div className="bottom_content">
                                         <a>Qty : 1</a>
-                                        <p>Price : <span>24000/-</span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div className="extra_charge">
+                            <p>Total Price: <span>20000/-</span></p>
+                            <p>Delivary Charge: <span>20/-</span></p>
+                            <p>GST(18%): <span>17/-</span></p>
+                        </div>
+                        <div className="total_charge">
+                            <p>Total Amount: <span>21000/-</span></p>
+                        </div>
                         <div className="bottom_box">
                             <div className="status_box">
-                                <p>This is your Previous Order.</p>
+                                <p>Your Product is on the way</p>
                             </div>
                             <div className="btn_box">
                                 <button><i className="fa-solid fa-eye"></i>View Product</button>
-                                <button><i className="fa-solid fa-download"></i>Download Invoice</button>
+                                <a><i className="fa-solid fa-download"></i>Download Invoice</a>
                             </div>
                         </div>
                     </div>
